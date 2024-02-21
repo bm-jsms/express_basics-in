@@ -1,23 +1,16 @@
-import http from 'http';
+import express from 'express';
 
+const app = express();
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-	if (req.url === '/') {
-		res.writeHead(200, 'OK', { 'Content-Type': 'text/html' });
-		res.write('<h1>Hello World</h1>');
-		res.end();
-	} else if (req.url === '/about') {
-		res.writeHead(200, 'OK', { 'Content-Type': 'text/html' });
-		res.write('<h1>About Us</h1>');
-		res.end();
-	} else {
-		res.writeHead(404, 'Not Found', { 'Content-Type': 'text/html' });
-		res.write('<h1>Page Not Found</h1>');
-		res.end();
-	}
+app.get('/', (req, res) => {
+	res.send('<h1>Welcome to Express</h1>');
 });
 
-server.listen(port, () => {
+app.get('/about', (req, res) => {
+	res.send('<h1>About Us</h1>');
+});
+
+app.listen(port, () => {
 	console.log(`Server is running: http://localhost:${port}`);
 });
