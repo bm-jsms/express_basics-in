@@ -12,6 +12,17 @@ app.get('/users/:userId/books/:bookId', (req, res) => {
 	res.send(`<h1>User ID: ${userId}, Book ID: ${bookId}</h1>`);
 });
 
+app.get(
+	'/double-callback',
+	(req, res, next) => {
+		console.log('The response will be sent by the next function...');
+		next();
+	},
+	(req, res) => {
+		res.send('<h1>Hello from D!</h1>');
+	},
+);
+
 app.listen(port, () => {
 	console.log(`Server is running: http://localhost:${port}`);
 });
