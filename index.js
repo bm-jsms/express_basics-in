@@ -1,14 +1,13 @@
 import express from 'express';
-import path from 'path';
+import { join } from 'path';
+import route from './routes/route.js';
 
 const app = express();
 const port = 8000;
 
-app.use(express.static('./static'));
+app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-	res.sendFile(path.join(process.cwd(), './static/home.html'));
-});
+app.use('/', route);
 
 app.listen(port, () => {
 	console.log(`Server is running: http://localhost:${port}`);
