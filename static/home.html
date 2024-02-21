@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				text-align: center;
+				background-color: #0c0c0c;
+				color: #fff;
+			}
+			h1 {
+				font-size: 3rem;
+			}
+			p {
+				font-size: 1.5rem;
+			}
+			button {
+				font-size: 1.5rem;
+				padding: 1rem 2rem;
+				margin-top: 2rem;
+				background-color: #fff;
+				color: #0c0c0c;
+				border: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Home</h1>
+		<p>Welcome to the home page</p>
+		<button>click me</button>
+	</body>
+	<script>
+		document.querySelector('button').addEventListener('click', () => {
+			alert('Hello, World!');
+		});
+	</script>
+</html>
